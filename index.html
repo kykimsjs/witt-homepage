@@ -27,6 +27,28 @@
             background-color: #3b82f6; /* Blue 500 */
             border-radius: 2px;
         }
+        /* Hero Section에 업로드된 이미지 배경 적용 */
+        .hero-image-bg {
+            /* 업로드된 img1.jpg 파일을 배경으로 사용 */
+            background-image: url('img1.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* 배경 이미지 위에 콘텐츠가 잘 보이도록 어둡게 만드는 오버레이 추가 */
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+        /* 오버레이를 위한 가상 요소 스타일 */
+        .hero-image-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* 40% 투명도의 어두운 색상 */
+            z-index: -1;
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
