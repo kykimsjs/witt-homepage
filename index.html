@@ -176,11 +176,20 @@
             <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
             <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto text-center">WITT만의 차별화된 기술</h2>
             
-            <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="grid md:grid-cols-2 gap-10 items-center">  
                 
                 <!-- Image Placeholder -->
-                <div class="bg-gray-200 h-64 md:h-96 rounded-xl flex items-center justify-center shadow-lg">
-                    <span class="text-gray-500 text-xl font-medium">기술 아키텍처 다이어그램 </span>
+                <!-- Image Placeholder replaced with a placeholder image -->
+                <!-- [수정] 플레이스홀더 텍스트를 이미지 태그로 교체하고, 컨테이너에 맞도록 overflow-hidden 및 w-full h-full object-cover 스타일을 적용했습니다. -->
+                <div class="h-64 md:h-96 rounded-xl shadow-lg overflow-hidden">
+                    <img 
+                        src="images/witt consept.png" 
+                        alt="WITT 기술 아키텍처 다이어그램" 
+                        class="w-full h-full object-cover"
+                        onerror="this.onerror=null; this.src='https://placehold.co/800x600/3b82f6/ffffff?text=Image+Load+Error'"
+                    >
+                <!--div class="bg-gray-200 h-64 md:h-96 rounded-xl flex items-center justify-center shadow-lg"-->
+                    <!--span class="text-gray-500 text-xl font-medium">기술 아키텍처 다이어그램 </span-->
                 </div>
 
                 <!-- Features List -->
