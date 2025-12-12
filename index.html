@@ -7,13 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- [변경] Noto Sans KR 대신 Pretendard 폰트 CDN 링크 추가 -->
     <link as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet" />
-    <!--link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet"-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <style>
         body {
             /* [변경] 폰트를 Pretendard로 설정 */
             font-family: 'Pretendard', sans-serif;
-            /*font-family: 'Noto Sans KR', sans-serif;*/
             scroll-behavior: smooth;
         }
         .section-title {
@@ -26,14 +24,15 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 100%; /* 밑줄의 너비 */
-            height: 3px; /* 밑줄의 두께 */
-            background-color: #3b82f6; /* 밑줄의 색상 (Blue 500) */
+            /* 밑줄 너비를 글자 길이와 동일하게 설정 */
+            width: 100%;
+            height: 4px;
+            background-color: #3b82f6; /* Blue 500 */
             border-radius: 2px;
         }
         /* Hero Section에 업로드된 이미지 배경 적용 */
         .hero-image-bg {
-            /* 업로드된 img1.jpg 파일을 배경으로 사용 */
+            /* 업로드된 img1.jpg 파일을 배경으로 사용 (경로 수정: images/img1.jpg) */
             background-image: url('images/img1.jpg'); 
             background-size: cover;
             background-position: center;
@@ -67,7 +66,7 @@
                     alt="WITT" 
                     class="h-20 w-auto"
                     onerror="this.onerror=null; this.src='images/logo2.png'"
-                 >
+                   >
             </a>
             <nav class="hidden md:flex space-x-8 font-semibold">
                 <a href="#vision" class="hover:text-indigo-600 transition duration-150">회사 소개</a>
@@ -81,12 +80,13 @@
         </div>
     </header>
 
-    <!-- 1. Hero Section (메인) - hero-image-bg 클래스를 다시 적용했습니다. -->
+    <!-- 1. Hero Section (메인) -->
     <section class="hero-image-bg text-white py-24 md:py-36">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-4x1 font-medium opacity-95 mb-3">Smart Energy ICT Solution Provider</p>
-            <!-- font-bold (700)를 font-semibold (600)로 변경하여 글꼴 두께를 얇게 조정했습니다. -->
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-midium mb-6 tracking-tight" style="color: #aee3e4;">
+            <!-- 글씨 크기를 text-2xl에서 text-3xl로, 두께를 font-semibold로, 투명도를 opacity-95로 키웠습니다. -->
+            <p class="text-3xl font-semibold opacity-95 mb-4">Smart Energy ICT Solution Provider</p>
+            <!-- 글씨 색상을 #aee3e4로 변경하기 위해 인라인 스타일을 추가했습니다. -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-medium mb-6 tracking-tight" style="color: #aee3e4;">
                 에너지의 미래를 바꾸는 <br class="md:hidden"> 혁신적인 ICT 플랫폼
             </h1>
             <p class="text-xl max-w-3xl mx-auto opacity-90 mb-8">
@@ -102,7 +102,8 @@
     <!-- 2. Vision & Mission (회사 소개) -->
     <section id="vision" class="py-20 md:py-32 bg-white">
         <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-bold section-title mb-12 mx-auto md:mx-0">미션 및 비전</h2>
+            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
+            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto md:mx-0">미션 및 비전</h2>
             
             <div class="grid md:grid-cols-3 gap-8 text-center">
                 
@@ -134,7 +135,8 @@
     <!-- 3. Core Solutions (핵심 솔루션) -->
     <section id="solutions" class="py-20 md:py-32 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold section-title mb-12 mx-auto md:mx-0 text-center">WITT 핵심 솔루션</h2>
+            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
+            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto md:mx-0 text-center">WITT 핵심 솔루션</h2>
             <p class="text-center text-lg text-gray-600 max-w-4xl mx-auto mb-16">
                 WITT는 에너지 산업에 특화된 3대 핵심 플랫폼을 제공하여 운영 효율성과 예측 정확도를 극대화합니다.
             </p>
@@ -171,13 +173,14 @@
     <!-- 4. Technology Strength (기술 강점) -->
     <section id="technology" class="py-20 md:py-32 bg-white">
         <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-bold section-title mb-12 mx-auto text-center">WITT만의 차별화된 기술</h2>
+            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
+            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto text-center">WITT만의 차별화된 기술</h2>
             
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 
                 <!-- Image Placeholder -->
                 <div class="bg-gray-200 h-64 md:h-96 rounded-xl flex items-center justify-center shadow-lg">
-                    <span class="text-gray-500 text-xl font-medium">기술 아키텍처 다이어그램 [Image of Server Rack]</span>
+                    <span class="text-gray-500 text-xl font-medium">기술 아키텍처 다이어그램 </span>
                 </div>
 
                 <!-- Features List -->
@@ -214,7 +217,8 @@
     <!-- 5. Contact Section (문의하기) -->
     <footer id="contact" class="bg-gray-800 text-white py-16">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-4">WITT와 함께 에너지의 미래를 설계하세요.</h2>
+            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
+            <h2 class="text-3xl font-medium mb-4">WITT와 함께 에너지의 미래를 설계하세요.</h2>
             <p class="text-gray-400 mb-10 max-w-3xl">
                 솔루션 도입 문의, 기술 제휴, 채용 등 궁금하신 사항을 남겨주시면<br>
                 담당자가 신속하게 연락드리겠습니다.
