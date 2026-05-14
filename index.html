@@ -1,85 +1,420 @@
+윗트홈페이지
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주식회사 윗트(WITT) | 스마트 에너지 & 관광 ICT 플랫폼</title>
+    <title>주식회사 윗트(WITT) | 스마트 에너지 ICT 솔루션</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+    <!-- [변경] Noto Sans KR 대신 Pretendard 폰트 CDN 링크 추가 -->
+    <link as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
-    <meta name="description" content="주식회사 윗트(WITT)는 AMI와 빅데이터 기술을 관광에 접목하여 나주 1박 2득 등 스마트 관광 솔루션을 제공하는 에너지 ICT 리더입니다.">
+    <meta name="naver-site-verification" content="bc001bc3fdd0c9e947dd3feb9c27d4369f12d536" />
+    <meta name="google-site-verification" content="fq90lIjdOGDTYsOGmED9qpXaG-xEw84F7RtGB_vCatg" />
+    
+    <meta name="description" content="주식회사 윗트(WITT)는 스마트 에너지 ICT 솔루션 기업으로 원격검침, 에너지 데이터 플랫폼, AI/빅데이터/OT보안 기반의 공공·기업 맞춤형 시스템을 제공합니다.">
+    <link rel="canonical" href="https://witt.it.kr/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="주식회사 윗트(WITT) | 스마트 에너지 ICT 솔루션">
+    <meta property="og:description" content="원격검침·에너지 데이터 플랫폼·AI/빅데이터·OT보안 기반 에너지 ICT 솔루션">
+    <meta property="og:url" content="https://witt.it.kr/">
+    <meta property="og:image" content="https://witt.it.kr/images/og-image.png">
+
     <style>
-        body { font-family: 'Pretendard', sans-serif; scroll-behavior: smooth; }
-       .hero-image-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/img1.jpg');
-            background-size: cover; background-position: center;
+        body {
+            /* [변경] 폰트를 Pretendard로 설정 */
+            font-family: 'Pretendard', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            /* 밑줄 너비를 글자 길이와 동일하게 설정 */
+            width: 100%;
+            height: 4px;
+            background-color: #3b82f6; /* Blue 500 */
+            border-radius: 2px;
+        }
+        /* Hero Section에 업로드된 이미지 배경 적용 */
+        .hero-image-bg {
+            /* 업로드된 img1.jpg 파일을 배경으로 사용 (경로 수정: images/img1.jpg) */
+            background-image: url('images/img1.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* 배경 이미지 위에 콘텐츠가 잘 보이도록 어둡게 만드는 오버레이 추가 */
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+        /* 오버레이를 위한 가상 요소 스타일 */
+        .hero-image-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* 40% 투명도의 어두운 색상 */
+            z-index: -1;
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="h-12"><img src="images/logo2.png" alt="WITT" class="h-full"></a>
+            <a href="#" class="text-2xl font-black text-indigo-600 tracking-tight">
+                <img 
+                    src="images/logo2.png" 
+                    alt="WITT" 
+                    class="h-20 w-auto"
+                    onerror="this.onerror=null; this.src='images/logo2.png'"
+                   >
+            </a>
+            <!-- [수정] 내비게이션에 '연구소' 항목 추가 -->
             <nav class="hidden md:flex space-x-8 font-semibold">
-                <a href="#vision" class="hover:text-indigo-600">회사 소개</a>
-                <a href="#dashboard" class="hover:text-indigo-600">데이터 센터</a>
-                <a href="#solutions" class="hover:text-indigo-600">융합 서비스</a>
-                <a href="#research" class="hover:text-indigo-600">연구소</a>
+                <a href="#vision" class="hover:text-indigo-600 transition duration-150">회사 소개</a>
+                <a href="#solutions" class="hover:text-indigo-600 transition duration-150">핵심 서비스</a>
+                <a href="#technology" class="hover:text-indigo-600 transition duration-150">차별화된 기술</a>
+                <a href="#research" class="hover:text-indigo-600 transition duration-150">연구소</a> <!-- 연구소 링크 추가 -->
+                <a href="#contact" class="hover:text-indigo-600 transition duration-150">문의하기</a>
             </nav>
+            <button class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
         </div>
     </header>
 
-    <section class="hero-image-bg text-white py-24">
+    <!-- 1. Hero Section (메인) -->
+    <section class="hero-image-bg text-white py-24 md:py-36">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6" style="color: #aee3e4;">에너지 데이터로 그리는<br>지속 가능한 나주 관광</h1>
-            <div id="dashboard" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
-                <div class="bg-white/10 backdrop-blur p-4 rounded-lg border border-white/20">
-                    <p class="text-sm">에너지 자립률</p>
-                    <p class="text-2xl font-bold">32.5%</p>
+            <!-- 글씨 크기를 text-2xl에서 text-3xl로, 두께를 font-semibold로, 투명도를 opacity-95로 키웠습니다. -->
+            <p class="text-2xl font-semibold opacity-100 mb-4">Smart Energy ICT Solution Provider</p>
+            <!-- 글씨 색상을 #aee3e4로 변경하기 위해 인라인 스타일을 추가했습니다. -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-medium mb-6 tracking-tight" style="color: #aee3e4;">
+                에너지의 미래를 바꾸는 <br class="md:hidden"> 혁신적인 ICT 플랫폼
+            </h1>
+            <p class="text-xl max-w-3xl mx-auto opacity-100 mb-8 font-light">
+                주식회사 윗트(WITT)는 에너지 데이터와 AI 기술을 통해<br class="hidden sm:inline">
+                더 안전하고, 더 깨끗하며, 더 효율적인 세상을 만듭니다.
+            </p>
+            <a href="#solutions" class="inline-block bg-[#0a6852] text-white hover:bg-[#003d2b] font-bold py-3 px-8 rounded-lg shadow-xl transition duration-300">
+                핵심 솔루션 자세히 보기 <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. Vision & Mission (회사 소개) -->
+    <section id="vision" class="py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
+            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto md:mx-0">미션 및 비전</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                
+                <!-- Mission -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
+                    <i class="fas fa-code text-4xl text-indigo-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">우리의 미션 (Mission)</h3>
+                    <p class="text-gray-600">최첨단 소프트웨어 개발 역량을 바탕으로 에너지 산업의 디지털 혁신과 효율성을 선도합니다.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur p-4 rounded-lg border border-white/20">
-                    <p class="text-sm">실시간 관광 혼잡도</p>
-                    <p class="text-2xl font-bold">쾌적</p>
+
+                <!-- Vision -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
+                    <i class="fas fa-rocket text-4xl text-indigo-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">우리의 비전 (Vision)</h3>
+                    <p class="text-gray-600">글로벌 에너지 ICT 솔루션 시장을 선도하는 소프트웨어 강소기업으로 도약합니다.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur p-4 rounded-lg border border-white/20">
-                    <p class="text-sm">나주 1박2득 참여</p>
-                    <p class="text-2xl font-bold">2,450건</p>
+
+                <!-- Core Value -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
+                    <i class="fas fa-lightbulb text-4xl text-indigo-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">핵심 가치 (Core Value)</h3>
+                    <p class="text-gray-600">혁신(Innovation), 신뢰(Trust), 기술력(Technology)을 바탕으로 고객과 함께 성장하는 파트너가 됩니다.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur p-4 rounded-lg border border-white/20">
-                    <p class="text-sm">누적 탄소 절감</p>
-                    <p class="text-2xl font-bold">142톤</p>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="solutions" class="py-20 bg-gray-100">
+    <!-- 3. Core Solutions (핵심 서비스) -->
+    <section id="solutions" class="py-20 md:py-32 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-medium text-center mb-12">에너지-관광 융합 솔루션</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <i class="fas fa-leaf text-green-500 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">그린 투어 포털</h3>
-                    <p class="text-gray-600">관광객의 탄소 발자국을 실시간 계산하고 에너지 절감 시 나주사랑상품권을 지급합니다.</p>
+            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
+            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto md:mx-0 text-center">WITT 핵심 서비스</h2>
+            <p class="text-center text-lg text-gray-600 max-w-4xl mx-auto mb-16">
+                WITT는 공공기관과 기업을 위한 맞춤형 개발 서비스로 디지털 혁신을 실현합니다.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service 1: UI/UX Design -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-4xl text-red-500 mb-4"><i class="fas fa-palette"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">사용자 중심 UI/UX 설계</h3>
+                    <p class="text-gray-600 mb-4">사용자 중심의 화면 설계로 직관적인 서비스 환경을 제공합니다. 사용성과 접근성을 고려한 인터페이스 설계로 최적의 사용자 경험을 구현하고, 반응형 디자인과 크로스 플랫폼 호완성을 보장합니다.</p>
+                    <a href="#" class="text-indigo-600 font-semibold hover:underline">자세히 보기 <i class="fas fa-chevron-right text-sm ml-1"></i></a>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <i class="fas fa-hotel text-blue-500 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">스마트 숙박 AMI</h3>
-                    <p class="text-gray-600">숙박 시설의 에너지 효율을 분석하여 최적의 에너지를 관리하는 친환경 스테이 솔루션입니다.</p>
+
+                <!-- Service 2: System Development -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-4xl text-green-500 mb-4"><i class="fas fa-server"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">안정적인 시스템 개발</h3>
+                    <p class="text-gray-600 mb-4">공공기관 특화 시스템을 안정성과 확장성을 고려하여 개발합니다.견고한 아키텍처 설계와 표준 기술을 적용하여 장기적인 운영과 유지보수가 용이한 시스템을 구축하고, 보안성과 성을 최우선으로 합니다.</p>
+                    <a href="#" class="text-indigo-600 font-semibold hover:underline">자세히 보기 <i class="fas fa-chevron-right text-sm ml-1"></i></a>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <i class="fas fa-chart-pie text-purple-500 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">ESG 데이터 관리</h3>
-                    <p class="text-gray-600">지자체 및 관광 기업을 위한 비재무적 성과 지표(ESG) 리포팅 서비스를 제공합니다.</p>
+
+                <!-- Service 3: Project Planning & Proposal -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="text-4xl text-yellow-500 mb-4"><i class="fas fa-clipboard-list"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">전문적인 사업 제안 및 기획</h3>
+                    <p class="text-gray-600 mb-4">RFP 분석부터 제안서 작성, 발표 지원까지 전 과정 대응이 가능합니다. 고객의 요구사항을 정확히 파악하고 체적의 솔루션을 제안하며, 사업 목표 달성을 위한 체계적인 프로젝트 계획과 실행 전략을 수립합니다.</p>
+                    <a href="#" class="text-indigo-600 font-semibold hover:underline">자세히 보기 <i class="fas fa-chevron-right text-sm ml-1"></i></a>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- 4. Technology Strength (차별화된 기술 ) -->
+    <section id="technology" class="py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
+            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto text-center">WITT만의 차별화된 기술</h2>
+            
+            <div class="grid md:grid-cols-2 gap-10 items-center">  
+                
+                <!-- Image Placeholder -->
+                <div class="h-64 md:h-96 rounded-xl shadow-lg overflow-hidden">
+                    <img 
+                        src="images/witt-consept.png" 
+                        alt="WITT 기술 아키텍처 다이어그램" 
+                        class="w-full h-full object-cover"
+                        onerror="this.onerror=null; this.src='https://placehold.co/800x600/3b82f6/ffffff?text=Image+Load+Error'"
+                    >
+                </div>
 
-    <footer id="contact" class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2026 WITT Co., Ltd. 대한민국 에너지수도 나주의 혁신 파트너</p>
+                <!-- Features List -->
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-check-circle text-2xl text-green-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800">원격검침 시스템 구축 기술</h4>
+                            <p class="text-gray-600">실시간 데이터 수집과 관리를 위한 IoT 기반 검침 솔루션을 제공합니다. 센서와 통신 기술을 활용한 자동화된 데이터 수집 시스템으로 효율성을 극대화하고, 클라우드 기반 데이터 분석을 통해 인사이트를 제공합니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-check-circle text-2xl text-green-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800">신속한 기술 지원</h4>
+                            <p class="text-gray-600">요청 사항에 대한 빠른 기술 지원 및 문서 기반 응답을 제공합니다. 전문 기술팀의 체계적인 지원 프로세스를 통해 신속하고 정확한 문제 해결을 제공하며, 지속적인 커뮤니케이션으로 고객 만족도를 최우선으로 합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-check-circle text-2xl text-green-500 mt-1 flex-shrink-0"></i>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800">체계적인 운영 및 유지보수</h4>
+                            <p class="text-gray-600">시스템 안정성을 유지하고 지속적인 기능 개선을 지원합니다. 모니터링 체계로 장애를 사전에 예방하고, 정기적인 업데이트와 성능 최적화를 통해 시스템의 안정적인 운영을 보장하며 사용자 만족도를 향상시킵니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 5. Research Institute Section (연구소 - 에너지-관광 융합 추가) -->
+    <section id="research" class="py-20 md:py-32 bg-gray-100">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto text-center">WITT 연구소</h2>
+            <p class="text-center text-lg text-gray-600 max-w-4xl mx-auto mb-16">
+                WITT 연구소는 인공지능, 빅데이터, IoT 분야의 핵심 기술을 개발하고,<br>
+                에너지 ICT 분야의 미래를 위한 혁신적인 솔루션을 연구합니다.
+            </p>
+            
+            <!-- [수정] md:grid-cols-4로 변경하여 4개 아이템을 한 줄에 배치 (작은 화면에서는 2줄) -->
+            <div class="grid sm:grid-cols-2 md:grid-cols-2 gap-8 text-center">
+                <!-- Research Area 1: AI/ML -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-purple-500 hover:shadow-xl transition duration-300">
+                    <i class="fas fa-brain text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">인공지능 / 머신러닝</h3>
+                    <p class="text-gray-600">에너지 수요 및 발전량 예측, 설비 이상 진단 알고리즘 등 데이터 기반의 지능형 시스템 개발에 집중합니다.</p>
+                </div>
+                
+                <!-- Research Area 2: Big Data & Cloud -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-purple-500 hover:shadow-xl transition duration-300">
+                    <i class="fas fa-database text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">빅데이터 플랫폼 / 클라우드</h3>
+                    <p class="text-gray-600">대용량 에너지 데이터를 안정적으로 수집/처리하고, 확장성이 높은 클라우드 네이티브 아키텍처를 연구합니다.</p>
+                </div>
+
+                <!-- Research Area 4: Energy-Tourism Convergence (새로 추가) -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-purple-500 hover:shadow-xl transition duration-300">
+                    <i class="fas fa-route text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">에너지-관광 콘텐츠</h3>
+                    <p class="text-gray-600">에너지 시설(친환경 발전소, 스마트 그리드)을 활용한 체험형 관광 상품 개발 및 ICT 기반 관광 플랫폼 연동 전략을 연구합니다.</p>
+                </div>
+                
+                <!-- Research Area 3: Security -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-purple-500 hover:shadow-xl transition duration-300">
+                    <i class="fas fa-lock text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">산업용 보안 기술 (OT Security)</h3>
+                    <p class="text-gray-600">에너지 인프라의 사이버 위협에 대응하는 특화된 운영 기술(OT) 보안 및 침입 방지 솔루션을 개발합니다.</p>
+                </div>
+
+                <div class="text-center mt-12">
+                <button onclick="showResearchDetail()" 
+                        class="bg-indigo-600 text-white hover:bg-indigo-700 font-bold py-3 px-8 rounded-lg shadow-xl transition duration-300 transform hover:scale-105">
+                    연구소 조직도 상세 보기 <i class="fas fa-chevron-right ml-2"></i>
+                </button>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- 5-Detail. Research Institute Detail View (조직도만 포함) -->
+    <section id="research-detail" class="hidden py-20 md:py-32 bg-white min-h-screen">
+        <div class="container mx-auto px-4 max-w-5xl">
+
+            <!-- 뒤로 가기 버튼 -->
+            <button onclick="hideResearchDetail()"
+                    class="mb-8 text-indigo-600 hover:text-indigo-800 font-semibold transition duration-150">
+                <i class="fas fa-arrow-left mr-2"></i> 연구소 메인으로 돌아가기
+            </button>
+            
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800 border-b-2 pb-4">
+                WITT 연구소 조직도 (Organizational Chart)
+            </h2>
+            
+            <p class="text-center text-lg text-gray-600 max-w-4xl mx-auto mb-16">
+                WITT 연구소는 연구소장을 중심으로 AI/알고리즘 연구팀과 플랫폼/데이터 연구팀, 총 두 개의 핵심 팀으로 구성되어 있습니다.
+            </p>
+
+            <!-- 연구소 조직도 (Organizational Chart) -->
+            <div class="p-6 bg-gray-50 rounded-xl shadow-inner">
+                
+                <!-- Level 1: Director (연구소장) -->
+                <div class="flex justify-center mb-6">
+                    <div class="bg-indigo-600 text-white p-4 rounded-xl shadow-xl w-64 text-center font-bold text-xl ring-4 ring-indigo-300">
+                        <i class="fas fa-user-tie mr-2"></i> 연구소장
+                    </div>
+                </div>
+
+                <!-- Vertical Connector Line -->
+                <div class="org-chart-connector-v"></div>
+
+                <!-- Level 2: Main Teams (2개 팀) -->
+                <div class="flex flex-col md:flex-row justify-center items-stretch relative">
+                    
+                    <!-- Horizontal Connector for Teams (MD 이상에서만 표시) -->
+                    <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gray-300 z-0 transform -translate-y-1/2"></div>
+
+                    <!-- Team 1: AI/Algorithm Team -->
+                    <div class="w-full md:w-1/3 flex flex-col items-center relative z-10 p-4 pt-0">
+                        <!-- Vertical Connector from Horizontal (MD 이상에서) -->
+                        <div class="hidden md:block w-1 bg-gray-300 h-6"></div>
+                        <div class="org-chart-connector-v md:hidden"></div> <!-- Mobile V-Connector -->
+
+                        <div class="bg-white border-4 border-indigo-400 text-gray-800 p-6 rounded-xl shadow-lg w-full max-w-xs text-center font-semibold text-lg hover:bg-indigo-50 transition duration-300 transform hover:scale-[1.02]">
+                            <i class="fas fa-microchip mr-2 text-indigo-500"></i> AI/알고리즘 연구팀
+                        </div>
+                        <p class="mt-2 text-sm text-gray-500">지능형 예측, 진단 및 최적화 기술 개발</p>
+                    </div>
+                    
+                    <!-- Team 2: Platform/Data Team -->
+                    <div class="w-full md:w-1/3 flex flex-col items-center relative z-10 p-4 pt-0 mt-6 md:mt-0">
+                        <!-- Vertical Connector from Horizontal (MD 이상에서) -->
+                        <div class="hidden md:block w-1 bg-gray-300 h-6"></div>
+                        <div class="org-chart-connector-v md:hidden"></div> <!-- Mobile V-Connector -->
+
+                        <div class="bg-white border-4 border-indigo-400 text-gray-800 p-6 rounded-xl shadow-lg w-full max-w-xs text-center font-semibold text-lg hover:bg-indigo-50 transition duration-300 transform hover:scale-[1.02]">
+                            <i class="fas fa-cloud-upload-alt mr-2 text-indigo-500"></i> 플랫폼/데이터 연구팀
+                        </div>
+                        <p class="mt-2 text-sm text-gray-500">대용량 데이터 수집, 처리, 클라우드 아키텍처</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Organizational Chart -->
+
+
+            
+             <!-- 뒤로 가기 버튼 (하단) -->
+            <div class="text-center mt-12">
+                 <button onclick="hideResearchDetail()"
+                    class="bg-gray-200 text-gray-700 hover:bg-gray-300 font-bold py-3 px-8 rounded-lg transition duration-200">
+                    <i class="fas fa-arrow-up mr-2"></i> 연구소 메인으로 돌아가기
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 6. Contact Section (문의하기) -->
+    <footer id="contact" class="bg-gray-800 text-white py-16">
+        <div class="container mx-auto px-4">
+            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
+            <h2 class="text-3xl font-medium mb-4">WITT와 함께 디지털 혁신을 실현하세요.</h2>
+            <p class="text-gray-400 mb-10 max-w-3xl">
+                맞춤형 시스템 개발, 기술 제휴, 채용 등 궁금하신 사항을 남겨주시면<br>
+                담당자가 신속하게 연락드리겠습니다.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8 border-t border-gray-700 pt-8">
+                
+                <!-- Contact Info Column -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-blue-400">연락처 정보</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p class="flex items-center"><i class="fas fa-phone-alt mr-3"></i> T. 010-6850-7890</p>
+                        <p class="flex items-center"><i class="fas fa-envelope mr-3"></i> E. kkytour@gmail.com</p>
+                        <p class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3"></i> A. 전라남도 나주시 그린로 370, 에너지밸리기업개발원 414호</p>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-blue-400">바로 가기</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#vision" class="hover:text-white transition duration-150 text-gray-300">회사 소개</a></li>
+                        <li><a href="#solutions" class="hover:text-white transition duration-150 text-gray-300">핵심 서비스</a></li>
+                        <li><a href="#technology" class="hover:text-white transition duration-150 text-gray-300">기술 문의</a></li>
+                        <li><a href="#research" class="hover:text-white transition duration-150 text-gray-300">연구소</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-150 text-gray-300">채용 정보</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter/Inquiry (Placeholder) -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-blue-400">간단 문의</h4>
+                    <p class="text-gray-400 mb-3">프로젝트 문의 내용을 남겨주세요.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="이메일 주소" class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <textarea placeholder="문의 내용 요약 (선택 사항)" rows="2" class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 rounded-lg transition duration-200">문의하기</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="mt-12 pt-6 border-t border-gray-700 text-center">
+                <p class="text-sm text-gray-500">
+                    &copy; 2025 WITT Co., Ltd. All rights reserved. 
+                </p>
+            </div>
         </div>
     </footer>
+
 </body>
 </html>
