@@ -1,420 +1,1065 @@
-윗트홈페이지
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주식회사 윗트(WITT) | 스마트 에너지 ICT 솔루션</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- [변경] Noto Sans KR 대신 Pretendard 폰트 CDN 링크 추가 -->
-    <link as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
-    <meta name="naver-site-verification" content="bc001bc3fdd0c9e947dd3feb9c27d4369f12d536" />
-    <meta name="google-site-verification" content="fq90lIjdOGDTYsOGmED9qpXaG-xEw84F7RtGB_vCatg" />
-    
-    <meta name="description" content="주식회사 윗트(WITT)는 스마트 에너지 ICT 솔루션 기업으로 원격검침, 에너지 데이터 플랫폼, AI/빅데이터/OT보안 기반의 공공·기업 맞춤형 시스템을 제공합니다.">
-    <link rel="canonical" href="https://witt.it.kr/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="주식회사 윗트(WITT) | 스마트 에너지 ICT 솔루션">
-    <meta property="og:description" content="원격검침·에너지 데이터 플랫폼·AI/빅데이터·OT보안 기반 에너지 ICT 솔루션">
-    <meta property="og:url" content="https://witt.it.kr/">
-    <meta property="og:image" content="https://witt.it.kr/images/og-image.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WITT | 에너지 ICT 스마트 관광 플랫폼</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050e14;
+    --surface: #0a1a24;
+    --surface2: #0f2535;
+    --primary: #00d4aa;
+    --primary-dim: #00a884;
+    --accent: #f5a623;
+    --accent2: #e84393;
+    --text: #e8f4f0;
+    --text-dim: #7fa8b8;
+    --border: rgba(0, 212, 170, 0.2);
+    --glow: 0 0 30px rgba(0, 212, 170, 0.3);
+    --glow-accent: 0 0 30px rgba(245, 166, 35, 0.3);
+  }
 
-    <style>
-        body {
-            /* [변경] 폰트를 Pretendard로 설정 */
-            font-family: 'Pretendard', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .section-title {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 8px;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            /* 밑줄 너비를 글자 길이와 동일하게 설정 */
-            width: 100%;
-            height: 4px;
-            background-color: #3b82f6; /* Blue 500 */
-            border-radius: 2px;
-        }
-        /* Hero Section에 업로드된 이미지 배경 적용 */
-        .hero-image-bg {
-            /* 업로드된 img1.jpg 파일을 배경으로 사용 (경로 수정: images/img1.jpg) */
-            background-image: url('images/img1.jpg'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            /* 배경 이미지 위에 콘텐츠가 잘 보이도록 어둡게 만드는 오버레이 추가 */
-            position: relative;
-            overflow: hidden;
-            z-index: 10;
-        }
-        /* 오버레이를 위한 가상 요소 스타일 */
-        .hero-image-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* 40% 투명도의 어두운 색상 */
-            z-index: -1;
-        }
-    </style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(5, 14, 20, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.6rem; font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.1em;
+    text-shadow: var(--glow);
+  }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--text-dim); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--primary); }
+  .nav-cta {
+    background: var(--primary); color: var(--bg);
+    padding: 0.6rem 1.5rem; border-radius: 2px;
+    font-size: 0.85rem; font-weight: 700;
+    text-decoration: none; letter-spacing: 0.08em;
+    transition: box-shadow 0.3s, transform 0.2s;
+  }
+  .nav-cta:hover { box-shadow: var(--glow); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    position: relative; overflow: hidden;
+    padding: 8rem 2rem 4rem;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,170,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+  }
+  @keyframes gridMove { to { background-position: 0 60px; } }
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,170,0.12) 0%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: pulse 4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.6} 50%{transform:translate(-50%,-50%) scale(1.15);opacity:1} }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(0,212,170,0.1); border: 1px solid var(--border);
+    padding: 0.4rem 1.2rem; border-radius: 100px;
+    font-size: 0.75rem; color: var(--primary); letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.8s ease both;
+  }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); animation: blink 1.5s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900;
+    line-height: 1.1; letter-spacing: -0.02em;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-title .line1 { display: block; color: var(--text); }
+  .hero-title .line2 { display: block; color: var(--primary); }
+  .hero-title .line3 { display: block; color: var(--accent); font-size: 0.7em; font-weight: 400; margin-top: 0.3em; }
+  .hero-sub {
+    max-width: 640px; margin: 2rem auto 0;
+    color: var(--text-dim); line-height: 1.8; font-size: 1.05rem;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 3.5rem;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.2rem; font-weight: 700; color: var(--primary);
+    text-shadow: var(--glow);
+  }
+  .stat-label { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; }
+  .hero-cta-row {
+    display: flex; gap: 1rem; margin-top: 3rem;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--primary); color: var(--bg);
+    padding: 0.9rem 2.2rem; font-weight: 700;
+    border: none; border-radius: 2px; cursor: pointer;
+    font-size: 0.9rem; letter-spacing: 0.08em;
+    transition: box-shadow 0.3s, transform 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { box-shadow: var(--glow); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    padding: 0.9rem 2.2rem; font-weight: 500;
+    border: 1px solid var(--border); border-radius: 2px; cursor: pointer;
+    font-size: 0.9rem; letter-spacing: 0.08em;
+    transition: border-color 0.3s, color 0.3s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── LIVE DASHBOARD ── */
+  #dashboard {
+    padding: 6rem 4rem;
+    background: var(--surface);
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; color: var(--primary);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900;
+    line-height: 1.2; margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--text-dim); line-height: 1.8; max-width: 560px; }
+  .dashboard-header { margin-bottom: 3rem; }
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .dash-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .dash-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+  .dash-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--primary), transparent);
+  }
+  .dash-card.accent::before { background: linear-gradient(90deg, var(--accent), transparent); }
+  .dash-card.accent2::before { background: linear-gradient(90deg, var(--accent2), transparent); }
+  .dash-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+  .dash-label { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .dash-value {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.9rem; font-weight: 700; color: var(--primary);
+  }
+  .dash-card.accent .dash-value { color: var(--accent); }
+  .dash-card.accent2 .dash-value { color: var(--accent2); }
+  .dash-unit { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; }
+  .dash-trend {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    font-size: 0.7rem; color: var(--primary); margin-top: 0.75rem;
+    background: rgba(0,212,170,0.1); padding: 0.2rem 0.6rem; border-radius: 100px;
+  }
+
+  /* ── SERVICES ── */
+  #services { padding: 7rem 4rem; }
+  .services-header { margin-bottom: 4rem; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px; padding: 2.5rem;
+    position: relative; overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: default;
+  }
+  .service-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+  .service-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 3.5rem; font-weight: 700;
+    color: rgba(0,212,170,0.1); line-height: 1;
+    position: absolute; top: 1.5rem; right: 1.5rem;
+  }
+  .service-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+  .service-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .service-desc { color: var(--text-dim); line-height: 1.8; font-size: 0.9rem; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .tag {
+    font-size: 0.7rem; padding: 0.25rem 0.7rem;
+    background: rgba(0,212,170,0.1); border: 1px solid var(--border);
+    border-radius: 100px; color: var(--primary); letter-spacing: 0.05em;
+  }
+
+  /* ── ESG ── */
+  #esg {
+    padding: 7rem 4rem;
+    background: var(--surface);
+  }
+  .esg-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .esg-cards { display: flex; flex-direction: column; gap: 1.5rem; }
+  .esg-card {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.75rem;
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    transition: border-color 0.3s;
+  }
+  .esg-card:hover { border-color: var(--primary); }
+  .esg-letter {
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem; font-weight: 700; color: var(--primary);
+    min-width: 2.5rem; text-shadow: var(--glow);
+  }
+  .esg-letter.s { color: var(--accent); text-shadow: var(--glow-accent); }
+  .esg-letter.g { color: var(--accent2); }
+  .esg-title { font-weight: 700; margin-bottom: 0.4rem; }
+  .esg-items { font-size: 0.85rem; color: var(--text-dim); line-height: 1.8; }
+  .esg-tech { font-size: 0.8rem; color: var(--primary); margin-top: 0.5rem; }
+  .esg-letter.s + div .esg-tech { color: var(--accent); }
+  .esg-letter.g + div .esg-tech { color: var(--accent2); }
+
+  /* ── SCENARIOS ── */
+  #scenarios { padding: 7rem 4rem; }
+  .scenario-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
+  .scenario-card {
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 2.5rem; position: relative; overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .scenario-card:hover { border-color: var(--primary); }
+  .scenario-card::after {
+    content: ''; position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,212,170,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .sc-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .sc-icon-wrap {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(0,212,170,0.1); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+  }
+  .sc-title { font-size: 1.1rem; font-weight: 700; }
+  .sc-sub { font-size: 0.8rem; color: var(--primary); }
+  .sc-body { color: var(--text-dim); line-height: 1.8; font-size: 0.9rem; }
+  .sc-metrics { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
+  .sc-metric { }
+  .sc-metric-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4rem; font-weight: 700; color: var(--primary);
+  }
+  .sc-metric-label { font-size: 0.7rem; color: var(--text-dim); }
+
+  /* ── INFO ARCHITECTURE ── */
+  #ia { padding: 7rem 4rem; background: var(--surface); }
+  .ia-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .ia-card {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .ia-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+  .ia-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; color: var(--primary); letter-spacing: 0.2em;
+    margin-bottom: 0.75rem;
+  }
+  .ia-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .ia-items { list-style: none; }
+  .ia-items li {
+    font-size: 0.82rem; color: var(--text-dim); padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .ia-items li::before { content: '▸'; color: var(--primary); font-size: 0.65rem; }
+
+  /* ── GREEN TOUR ── */
+  #greentour { padding: 7rem 4rem; }
+  .gt-layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: center; }
+  .gt-feature-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+  .gt-feature {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    padding: 1.25rem; border: 1px solid var(--border); border-radius: 4px;
+    background: var(--surface); transition: border-color 0.3s;
+  }
+  .gt-feature:hover { border-color: var(--primary); }
+  .gt-feature-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(0,212,170,0.12); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .gt-feature-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .gt-feature-desc { font-size: 0.82rem; color: var(--text-dim); line-height: 1.7; }
+  .gt-demo {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 2rem;
+  }
+  .gt-demo-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; color: var(--primary); letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+  }
+  .calculator { display: flex; flex-direction: column; gap: 1rem; }
+  .calc-row { display: flex; flex-direction: column; gap: 0.4rem; }
+  .calc-label { font-size: 0.75rem; color: var(--text-dim); }
+  .calc-input {
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text); padding: 0.6rem 1rem; border-radius: 2px;
+    font-size: 0.85rem; outline: none; transition: border-color 0.3s;
+    width: 100%;
+  }
+  .calc-input:focus { border-color: var(--primary); }
+  .calc-select {
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text); padding: 0.6rem 1rem; border-radius: 2px;
+    font-size: 0.85rem; outline: none; width: 100%;
+    cursor: pointer;
+  }
+  .calc-btn {
+    background: var(--primary); color: var(--bg);
+    border: none; padding: 0.75rem; border-radius: 2px;
+    font-weight: 700; cursor: pointer; font-size: 0.85rem;
+    letter-spacing: 0.05em; transition: box-shadow 0.3s;
+  }
+  .calc-btn:hover { box-shadow: var(--glow); }
+  .calc-result {
+    background: rgba(0,212,170,0.08); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.25rem; margin-top: 0.5rem;
+    display: none;
+  }
+  .calc-result.show { display: block; }
+  .result-label { font-size: 0.7rem; color: var(--text-dim); margin-bottom: 0.25rem; }
+  .result-value {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.6rem; font-weight: 700; color: var(--primary);
+  }
+  .result-reward { font-size: 0.8rem; color: var(--accent); margin-top: 0.5rem; }
+
+  /* ── VISION ── */
+  #vision {
+    padding: 8rem 4rem;
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(0,212,170,0.05) 100%);
+    text-align: center;
+  }
+  .vision-quote {
+    max-width: 800px; margin: 0 auto;
+    font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700;
+    line-height: 1.5; margin-bottom: 3rem;
+  }
+  .vision-quote em { color: var(--primary); font-style: normal; }
+  .effects-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; max-width: 900px; margin: 0 auto;
+  }
+  .effect-card {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.3s;
+  }
+  .effect-card:hover { border-color: var(--primary); }
+  .effect-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .effect-title { font-weight: 700; margin-bottom: 0.5rem; }
+  .effect-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
+
+  /* ── CONTACT ── */
+  #contact {
+    padding: 6rem 4rem;
+    border-top: 1px solid var(--border);
+  }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+  .contact-info { }
+  .contact-info p { color: var(--text-dim); line-height: 1.8; margin-bottom: 2rem; }
+  .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; }
+  .contact-item-icon { color: var(--primary); font-size: 1.1rem; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-input {
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); padding: 0.75rem 1rem; border-radius: 2px;
+    font-size: 0.85rem; outline: none; transition: border-color 0.3s;
+    font-family: inherit; width: 100%;
+  }
+  .form-input:focus { border-color: var(--primary); }
+  textarea.form-input { resize: vertical; min-height: 120px; }
+  .form-btn {
+    background: var(--primary); color: var(--bg);
+    border: none; padding: 0.85rem;
+    font-weight: 700; cursor: pointer; font-size: 0.9rem;
+    border-radius: 2px; letter-spacing: 0.05em;
+    transition: box-shadow 0.3s; font-family: inherit;
+  }
+  .form-btn:hover { box-shadow: var(--glow); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--surface); border-top: 1px solid var(--border);
+    padding: 3rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-logo { font-family: 'Space Mono', monospace; font-size: 1.2rem; color: var(--primary); }
+  .footer-copy { font-size: 0.8rem; color: var(--text-dim); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-size: 0.8rem; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--primary); }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--primary-dim); border-radius: 10px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { display: none; }
+    #hero, #dashboard, #services, #esg, #scenarios, #ia, #greentour, #vision, #contact { padding-left: 2rem; padding-right: 2rem; }
+    .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: 1fr; }
+    .esg-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .ia-grid { grid-template-columns: repeat(2, 1fr); }
+    .gt-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .effects-grid { grid-template-columns: 1fr; }
+    .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <!-- Header & Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-black text-indigo-600 tracking-tight">
-                <img 
-                    src="images/logo2.png" 
-                    alt="WITT" 
-                    class="h-20 w-auto"
-                    onerror="this.onerror=null; this.src='images/logo2.png'"
-                   >
-            </a>
-            <!-- [수정] 내비게이션에 '연구소' 항목 추가 -->
-            <nav class="hidden md:flex space-x-8 font-semibold">
-                <a href="#vision" class="hover:text-indigo-600 transition duration-150">회사 소개</a>
-                <a href="#solutions" class="hover:text-indigo-600 transition duration-150">핵심 서비스</a>
-                <a href="#technology" class="hover:text-indigo-600 transition duration-150">차별화된 기술</a>
-                <a href="#research" class="hover:text-indigo-600 transition duration-150">연구소</a> <!-- 연구소 링크 추가 -->
-                <a href="#contact" class="hover:text-indigo-600 transition duration-150">문의하기</a>
-            </nav>
-            <button class="md:hidden text-gray-600 focus:outline-none">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+<!-- NAV -->
+<nav>
+  <div class="logo">W<span>I</span>TT</div>
+  <ul class="nav-links">
+    <li><a href="#dashboard">대시보드</a></li>
+    <li><a href="#services">솔루션</a></li>
+    <li><a href="#esg">ESG</a></li>
+    <li><a href="#greentour">그린투어</a></li>
+    <li><a href="#contact">문의</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">솔루션 도입 상담</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-badge">
+    <div class="badge-dot"></div>
+    2026 나주 방문의 해 공식 에너지 ICT 파트너
+  </div>
+  <h1 class="hero-title">
+    <span class="line1">에너지 데이터로 그리는</span>
+    <span class="line2">스마트 관광의 미래</span>
+    <span class="line3">주식회사 윗트(WITT) × 나주 에너지 수도</span>
+  </h1>
+  <p class="hero-sub">
+    AMI 원격검침·AI 빅데이터·GIS 기술을 관광 도메인과 융합하여<br>
+    지속 가능한 탄소 중립 관광 플랫폼을 구축합니다.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" id="cnt-tourists">0</div>
+      <div class="stat-label">목표 연간 관광객 (만명)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="cnt-invest">0</div>
+      <div class="stat-label">에너지 클러스터 투자 (억원)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="cnt-carbon">0</div>
+      <div class="stat-label">탄소 절감 목표 (%)</div>
+    </div>
+  </div>
+  <div class="hero-cta-row">
+    <a href="#services" class="btn-primary">핵심 솔루션 보기</a>
+    <a href="#greentour" class="btn-outline">그린 투어 체험</a>
+  </div>
+</section>
+
+<!-- LIVE DASHBOARD -->
+<section id="dashboard">
+  <div class="dashboard-header">
+    <div class="section-label">● LIVE DATA</div>
+    <h2 class="section-title">나주 에너지-관광 실시간 지수</h2>
+    <p class="section-sub">WITT 에너지 플랫폼이 수집하는 실시간 데이터로 나주의 지속 가능성을 한눈에 확인하세요.</p>
+  </div>
+  <div class="dashboard-grid">
+    <div class="dash-card">
+      <div class="dash-icon">⚡</div>
+      <div class="dash-label">재생에너지 사용 비중</div>
+      <div class="dash-value" id="live-re">73.2</div>
+      <div class="dash-unit">% (실시간)</div>
+      <div class="dash-trend">▲ 2.1% 어제 대비</div>
+    </div>
+    <div class="dash-card accent">
+      <div class="dash-icon">🌿</div>
+      <div class="dash-label">오늘 탄소 절감량</div>
+      <div class="dash-value" id="live-carbon">12.4</div>
+      <div class="dash-unit">tCO₂eq (누적)</div>
+      <div class="dash-trend" style="background:rgba(245,166,35,0.1);color:var(--accent)">▲ 절감 목표 대비 118%</div>
+    </div>
+    <div class="dash-card">
+      <div class="dash-icon">🏨</div>
+      <div class="dash-label">1박2득 참여 숙박시설</div>
+      <div class="dash-value" id="live-hotel">847</div>
+      <div class="dash-unit">개소 (에너지 효율 인증)</div>
+      <div class="dash-trend">▲ 이번달 +34개 신규</div>
+    </div>
+    <div class="dash-card accent2">
+      <div class="dash-icon">👥</div>
+      <div class="dash-label">금일 방문 관광객</div>
+      <div class="dash-value" id="live-visitors">1.28</div>
+      <div class="dash-unit">만명 (실시간 GIS 집계)</div>
+      <div class="dash-trend" style="background:rgba(232,67,147,0.1);color:var(--accent2)">▲ 피크 혼잡도 낮음</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-label">● CORE SOLUTIONS</div>
+    <h2 class="section-title">에너지 ICT 핵심 솔루션</h2>
+    <p class="section-sub">WITT의 검증된 기술 역량이 관광 도메인과 만나 새로운 가치를 창출합니다.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">📡</div>
+      <div class="service-title">원격검침(AMI) 플랫폼</div>
+      <div class="service-desc">숙박 시설·관광지의 전력 소비를 실시간 계량하고, 피크 수요를 자동 관리합니다. 그린 스테이 인센티브 연동으로 관광객의 에너지 절약을 유도합니다.</div>
+      <div class="service-tags">
+        <span class="tag">AMI</span><span class="tag">실시간 계량</span><span class="tag">피크 관리</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">🧠</div>
+      <div class="service-title">AI 에너지 수요 예측</div>
+      <div class="service-desc">빅데이터와 AI 모델로 관광 시즌별 에너지 수요를 예측하고, 관광지 혼잡도와 연계한 동적 자원 배분 최적화 서비스를 제공합니다.</div>
+      <div class="service-tags">
+        <span class="tag">AI/ML</span><span class="tag">수요 예측</span><span class="tag">빅데이터</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">🗺️</div>
+      <div class="service-title">GIS 디지털 트윈 맵</div>
+      <div class="service-desc">관광지·전기차 충전소·숙박 시설 정보를 GIS 기반으로 통합 시각화합니다. 실시간 혼잡도·에너지 효율 등급을 지도 위에 직관적으로 표시합니다.</div>
+      <div class="service-tags">
+        <span class="tag">GIS</span><span class="tag">디지털 트윈</span><span class="tag">실시간 지도</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">🔒</div>
+      <div class="service-title">OT 보안 시스템</div>
+      <div class="service-desc">에너지 인프라와 관광 플랫폼 데이터를 안전하게 보호합니다. 블록체인 기반 데이터 무결성 보장으로 ESG 거버넌스 신뢰성을 확보합니다.</div>
+      <div class="service-tags">
+        <span class="tag">OT 보안</span><span class="tag">블록체인</span><span class="tag">데이터 무결성</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon">📊</div>
+      <div class="service-title">ESG 데이터 관리</div>
+      <div class="service-desc">환경·사회·지배구조 지표를 통합 수집·분석·리포팅합니다. 탄소 발자국 계산기와 지속 가능성 인증 지원 서비스를 포함합니다.</div>
+      <div class="service-tags">
+        <span class="tag">ESG</span><span class="tag">탄소 리포팅</span><span class="tag">지속 가능성</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon">🌱</div>
+      <div class="service-title">스마트 숙박 관리</div>
+      <div class="service-desc">에너지 효율 인증 숙박 시설 정보와 예약을 연계합니다. '1박 2득' 나주사랑상품권 정산을 자동화하고 그린 스테이 프로그램을 운영합니다.</div>
+      <div class="service-tags">
+        <span class="tag">그린 스테이</span><span class="tag">1박2득</span><span class="tag">지역화폐 연계</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESG -->
+<section id="esg">
+  <div class="esg-layout">
+    <div>
+      <div class="section-label">● ESG FRAMEWORK</div>
+      <h2 class="section-title">에너지 ICT로 증명하는<br>ESG 가치</h2>
+      <p class="section-sub" style="margin-top:1rem">
+        환경(E)·사회(S)·지배구조(G) 세 차원 모두에서 WITT의 기술이 데이터로 직접 기여합니다. 환경 차원은 관광 발전 분산의 58.7%를 설명하는 핵심 지표입니다.
+      </p>
+      <div style="margin-top:2.5rem">
+        <div class="section-label" style="margin-bottom:1rem">기대 효과</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:4px">
+            <span style="font-size:0.85rem">연간 목표 관광객</span>
+            <span style="font-family:'Space Mono',monospace;color:var(--primary);font-weight:700">500만 명</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:4px">
+            <span style="font-size:0.85rem">에너지 클러스터 투자</span>
+            <span style="font-family:'Space Mono',monospace;color:var(--accent);font-weight:700">3,519억 원</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:4px">
+            <span style="font-size:0.85rem">친환경 웹 탄소 절감</span>
+            <span style="font-family:'Space Mono',monospace;color:var(--accent2);font-weight:700">66% 이상</span>
+          </div>
         </div>
-    </header>
-
-    <!-- 1. Hero Section (메인) -->
-    <section class="hero-image-bg text-white py-24 md:py-36">
-        <div class="container mx-auto px-4 text-center">
-            <!-- 글씨 크기를 text-2xl에서 text-3xl로, 두께를 font-semibold로, 투명도를 opacity-95로 키웠습니다. -->
-            <p class="text-2xl font-semibold opacity-100 mb-4">Smart Energy ICT Solution Provider</p>
-            <!-- 글씨 색상을 #aee3e4로 변경하기 위해 인라인 스타일을 추가했습니다. -->
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-medium mb-6 tracking-tight" style="color: #aee3e4;">
-                에너지의 미래를 바꾸는 <br class="md:hidden"> 혁신적인 ICT 플랫폼
-            </h1>
-            <p class="text-xl max-w-3xl mx-auto opacity-100 mb-8 font-light">
-                주식회사 윗트(WITT)는 에너지 데이터와 AI 기술을 통해<br class="hidden sm:inline">
-                더 안전하고, 더 깨끗하며, 더 효율적인 세상을 만듭니다.
-            </p>
-            <a href="#solutions" class="inline-block bg-[#0a6852] text-white hover:bg-[#003d2b] font-bold py-3 px-8 rounded-lg shadow-xl transition duration-300">
-                핵심 솔루션 자세히 보기 <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+      </div>
+    </div>
+    <div class="esg-cards">
+      <div class="esg-card">
+        <div class="esg-letter">E</div>
+        <div>
+          <div class="esg-title">Environmental (환경)</div>
+          <div class="esg-items">탄소 배출량 · 에너지 효율 · 신재생에너지 비중 관리</div>
+          <div class="esg-tech">↳ AMI 실시간 전력 분석 + 탄소 발자국 계산기</div>
         </div>
-    </section>
-
-    <!-- 2. Vision & Mission (회사 소개) -->
-    <section id="vision" class="py-20 md:py-32 bg-white">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
-            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto md:mx-0">미션 및 비전</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                
-                <!-- Mission -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
-                    <i class="fas fa-code text-4xl text-indigo-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">우리의 미션 (Mission)</h3>
-                    <p class="text-gray-600">최첨단 소프트웨어 개발 역량을 바탕으로 에너지 산업의 디지털 혁신과 효율성을 선도합니다.</p>
-                </div>
-
-                <!-- Vision -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
-                    <i class="fas fa-rocket text-4xl text-indigo-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">우리의 비전 (Vision)</h3>
-                    <p class="text-gray-600">글로벌 에너지 ICT 솔루션 시장을 선도하는 소프트웨어 강소기업으로 도약합니다.</p>
-                </div>
-
-                <!-- Core Value -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
-                    <i class="fas fa-lightbulb text-4xl text-indigo-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">핵심 가치 (Core Value)</h3>
-                    <p class="text-gray-600">혁신(Innovation), 신뢰(Trust), 기술력(Technology)을 바탕으로 고객과 함께 성장하는 파트너가 됩니다.</p>
-                </div>
-
-            </div>
+      </div>
+      <div class="esg-card">
+        <div class="esg-letter s">S</div>
+        <div>
+          <div class="esg-title">Social (사회)</div>
+          <div class="esg-items">지역 사회 기여 · 고용 창출 · 관광객 만족도 향상</div>
+          <div class="esg-tech">↳ 지역 화폐 연계 리워드 + 유동인구 기반 안전 관리</div>
         </div>
-    </section>
-
-    <!-- 3. Core Solutions (핵심 서비스) -->
-    <section id="solutions" class="py-20 md:py-32 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
-            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto md:mx-0 text-center">WITT 핵심 서비스</h2>
-            <p class="text-center text-lg text-gray-600 max-w-4xl mx-auto mb-16">
-                WITT는 공공기관과 기업을 위한 맞춤형 개발 서비스로 디지털 혁신을 실현합니다.
-            </p>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Service 1: UI/UX Design -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="text-4xl text-red-500 mb-4"><i class="fas fa-palette"></i></div>
-                    <h3 class="text-2xl font-bold mb-3">사용자 중심 UI/UX 설계</h3>
-                    <p class="text-gray-600 mb-4">사용자 중심의 화면 설계로 직관적인 서비스 환경을 제공합니다. 사용성과 접근성을 고려한 인터페이스 설계로 최적의 사용자 경험을 구현하고, 반응형 디자인과 크로스 플랫폼 호완성을 보장합니다.</p>
-                    <a href="#" class="text-indigo-600 font-semibold hover:underline">자세히 보기 <i class="fas fa-chevron-right text-sm ml-1"></i></a>
-                </div>
-
-                <!-- Service 2: System Development -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="text-4xl text-green-500 mb-4"><i class="fas fa-server"></i></div>
-                    <h3 class="text-2xl font-bold mb-3">안정적인 시스템 개발</h3>
-                    <p class="text-gray-600 mb-4">공공기관 특화 시스템을 안정성과 확장성을 고려하여 개발합니다.견고한 아키텍처 설계와 표준 기술을 적용하여 장기적인 운영과 유지보수가 용이한 시스템을 구축하고, 보안성과 성을 최우선으로 합니다.</p>
-                    <a href="#" class="text-indigo-600 font-semibold hover:underline">자세히 보기 <i class="fas fa-chevron-right text-sm ml-1"></i></a>
-                </div>
-
-                <!-- Service 3: Project Planning & Proposal -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="text-4xl text-yellow-500 mb-4"><i class="fas fa-clipboard-list"></i></div>
-                    <h3 class="text-2xl font-bold mb-3">전문적인 사업 제안 및 기획</h3>
-                    <p class="text-gray-600 mb-4">RFP 분석부터 제안서 작성, 발표 지원까지 전 과정 대응이 가능합니다. 고객의 요구사항을 정확히 파악하고 체적의 솔루션을 제안하며, 사업 목표 달성을 위한 체계적인 프로젝트 계획과 실행 전략을 수립합니다.</p>
-                    <a href="#" class="text-indigo-600 font-semibold hover:underline">자세히 보기 <i class="fas fa-chevron-right text-sm ml-1"></i></a>
-                </div>
-            </div>
+      </div>
+      <div class="esg-card">
+        <div class="esg-letter g">G</div>
+        <div>
+          <div class="esg-title">Governance (지배구조)</div>
+          <div class="esg-items">데이터 투명성 · 정책 준수 · 디지털 윤리 확보</div>
+          <div class="esg-tech">↳ 블록체인 데이터 무결성 + OT 보안 솔루션</div>
         </div>
-    </section>
-    
-    <!-- 4. Technology Strength (차별화된 기술 ) -->
-    <section id="technology" class="py-20 md:py-32 bg-white">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
-            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto text-center">WITT만의 차별화된 기술</h2>
-            
-            <div class="grid md:grid-cols-2 gap-10 items-center">  
-                
-                <!-- Image Placeholder -->
-                <div class="h-64 md:h-96 rounded-xl shadow-lg overflow-hidden">
-                    <img 
-                        src="images/witt-consept.png" 
-                        alt="WITT 기술 아키텍처 다이어그램" 
-                        class="w-full h-full object-cover"
-                        onerror="this.onerror=null; this.src='https://placehold.co/800x600/3b82f6/ffffff?text=Image+Load+Error'"
-                    >
-                </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <!-- Features List -->
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
-                        <i class="fas fa-check-circle text-2xl text-green-500 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-800">원격검침 시스템 구축 기술</h4>
-                            <p class="text-gray-600">실시간 데이터 수집과 관리를 위한 IoT 기반 검침 솔루션을 제공합니다. 센서와 통신 기술을 활용한 자동화된 데이터 수집 시스템으로 효율성을 극대화하고, 클라우드 기반 데이터 분석을 통해 인사이트를 제공합니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <i class="fas fa-check-circle text-2xl text-green-500 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-800">신속한 기술 지원</h4>
-                            <p class="text-gray-600">요청 사항에 대한 빠른 기술 지원 및 문서 기반 응답을 제공합니다. 전문 기술팀의 체계적인 지원 프로세스를 통해 신속하고 정확한 문제 해결을 제공하며, 지속적인 커뮤니케이션으로 고객 만족도를 최우선으로 합니다.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start space-x-4">
-                        <i class="fas fa-check-circle text-2xl text-green-500 mt-1 flex-shrink-0"></i>
-                        <div>
-                            <h4 class="text-xl font-bold text-gray-800">체계적인 운영 및 유지보수</h4>
-                            <p class="text-gray-600">시스템 안정성을 유지하고 지속적인 기능 개선을 지원합니다. 모니터링 체계로 장애를 사전에 예방하고, 정기적인 업데이트와 성능 최적화를 통해 시스템의 안정적인 운영을 보장하며 사용자 만족도를 향상시킵니다.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- SCENARIOS -->
+<section id="scenarios">
+  <div class="section-label">● SCENARIO</div>
+  <h2 class="section-title">나주 스마트 관광 결합 시나리오</h2>
+  <div class="scenario-grid">
+    <div class="scenario-card">
+      <div class="sc-header">
+        <div class="sc-icon-wrap">🏨</div>
+        <div>
+          <div class="sc-title">1박 2득 그린 스테이</div>
+          <div class="sc-sub">체류형 관광 × 에너지 효율</div>
         </div>
-    </section>
-    
-    <!-- 5. Research Institute Section (연구소 - 에너지-관광 융합 추가) -->
-    <section id="research" class="py-20 md:py-32 bg-gray-100">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-medium section-title mb-12 mx-auto text-center">WITT 연구소</h2>
-            <p class="text-center text-lg text-gray-600 max-w-4xl mx-auto mb-16">
-                WITT 연구소는 인공지능, 빅데이터, IoT 분야의 핵심 기술을 개발하고,<br>
-                에너지 ICT 분야의 미래를 위한 혁신적인 솔루션을 연구합니다.
-            </p>
-            
-            <!-- [수정] md:grid-cols-4로 변경하여 4개 아이템을 한 줄에 배치 (작은 화면에서는 2줄) -->
-            <div class="grid sm:grid-cols-2 md:grid-cols-2 gap-8 text-center">
-                <!-- Research Area 1: AI/ML -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-purple-500 hover:shadow-xl transition duration-300">
-                    <i class="fas fa-brain text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">인공지능 / 머신러닝</h3>
-                    <p class="text-gray-600">에너지 수요 및 발전량 예측, 설비 이상 진단 알고리즘 등 데이터 기반의 지능형 시스템 개발에 집중합니다.</p>
-                </div>
-                
-                <!-- Research Area 2: Big Data & Cloud -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-purple-500 hover:shadow-xl transition duration-300">
-                    <i class="fas fa-database text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">빅데이터 플랫폼 / 클라우드</h3>
-                    <p class="text-gray-600">대용량 에너지 데이터를 안정적으로 수집/처리하고, 확장성이 높은 클라우드 네이티브 아키텍처를 연구합니다.</p>
-                </div>
-
-                <!-- Research Area 4: Energy-Tourism Convergence (새로 추가) -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-purple-500 hover:shadow-xl transition duration-300">
-                    <i class="fas fa-route text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">에너지-관광 콘텐츠</h3>
-                    <p class="text-gray-600">에너지 시설(친환경 발전소, 스마트 그리드)을 활용한 체험형 관광 상품 개발 및 ICT 기반 관광 플랫폼 연동 전략을 연구합니다.</p>
-                </div>
-                
-                <!-- Research Area 3: Security -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-b-4 border-purple-500 hover:shadow-xl transition duration-300">
-                    <i class="fas fa-lock text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3">산업용 보안 기술 (OT Security)</h3>
-                    <p class="text-gray-600">에너지 인프라의 사이버 위협에 대응하는 특화된 운영 기술(OT) 보안 및 침입 방지 솔루션을 개발합니다.</p>
-                </div>
-
-                <div class="text-center mt-12">
-                <button onclick="showResearchDetail()" 
-                        class="bg-indigo-600 text-white hover:bg-indigo-700 font-bold py-3 px-8 rounded-lg shadow-xl transition duration-300 transform hover:scale-105">
-                    연구소 조직도 상세 보기 <i class="fas fa-chevron-right ml-2"></i>
-                </button>
-                </div>
-               
-            </div>
+      </div>
+      <div class="sc-body">AMI 데이터를 활용해 숙박 시설의 피크 전력을 관리하고, 관광객이 에너지 절약에 동참할 경우 나주사랑상품권(최대 15만원 상당)으로 추가 인센티브를 지급합니다. 숙박업주에게는 운영비용 절감 효과를 동시에 제공합니다.</div>
+      <div class="sc-metrics">
+        <div class="sc-metric">
+          <div class="sc-metric-val">15만</div>
+          <div class="sc-metric-label">최대 혜택 (원)</div>
         </div>
-    </section>
-
-    <!-- 5-Detail. Research Institute Detail View (조직도만 포함) -->
-    <section id="research-detail" class="hidden py-20 md:py-32 bg-white min-h-screen">
-        <div class="container mx-auto px-4 max-w-5xl">
-
-            <!-- 뒤로 가기 버튼 -->
-            <button onclick="hideResearchDetail()"
-                    class="mb-8 text-indigo-600 hover:text-indigo-800 font-semibold transition duration-150">
-                <i class="fas fa-arrow-left mr-2"></i> 연구소 메인으로 돌아가기
-            </button>
-            
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-800 border-b-2 pb-4">
-                WITT 연구소 조직도 (Organizational Chart)
-            </h2>
-            
-            <p class="text-center text-lg text-gray-600 max-w-4xl mx-auto mb-16">
-                WITT 연구소는 연구소장을 중심으로 AI/알고리즘 연구팀과 플랫폼/데이터 연구팀, 총 두 개의 핵심 팀으로 구성되어 있습니다.
-            </p>
-
-            <!-- 연구소 조직도 (Organizational Chart) -->
-            <div class="p-6 bg-gray-50 rounded-xl shadow-inner">
-                
-                <!-- Level 1: Director (연구소장) -->
-                <div class="flex justify-center mb-6">
-                    <div class="bg-indigo-600 text-white p-4 rounded-xl shadow-xl w-64 text-center font-bold text-xl ring-4 ring-indigo-300">
-                        <i class="fas fa-user-tie mr-2"></i> 연구소장
-                    </div>
-                </div>
-
-                <!-- Vertical Connector Line -->
-                <div class="org-chart-connector-v"></div>
-
-                <!-- Level 2: Main Teams (2개 팀) -->
-                <div class="flex flex-col md:flex-row justify-center items-stretch relative">
-                    
-                    <!-- Horizontal Connector for Teams (MD 이상에서만 표시) -->
-                    <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gray-300 z-0 transform -translate-y-1/2"></div>
-
-                    <!-- Team 1: AI/Algorithm Team -->
-                    <div class="w-full md:w-1/3 flex flex-col items-center relative z-10 p-4 pt-0">
-                        <!-- Vertical Connector from Horizontal (MD 이상에서) -->
-                        <div class="hidden md:block w-1 bg-gray-300 h-6"></div>
-                        <div class="org-chart-connector-v md:hidden"></div> <!-- Mobile V-Connector -->
-
-                        <div class="bg-white border-4 border-indigo-400 text-gray-800 p-6 rounded-xl shadow-lg w-full max-w-xs text-center font-semibold text-lg hover:bg-indigo-50 transition duration-300 transform hover:scale-[1.02]">
-                            <i class="fas fa-microchip mr-2 text-indigo-500"></i> AI/알고리즘 연구팀
-                        </div>
-                        <p class="mt-2 text-sm text-gray-500">지능형 예측, 진단 및 최적화 기술 개발</p>
-                    </div>
-                    
-                    <!-- Team 2: Platform/Data Team -->
-                    <div class="w-full md:w-1/3 flex flex-col items-center relative z-10 p-4 pt-0 mt-6 md:mt-0">
-                        <!-- Vertical Connector from Horizontal (MD 이상에서) -->
-                        <div class="hidden md:block w-1 bg-gray-300 h-6"></div>
-                        <div class="org-chart-connector-v md:hidden"></div> <!-- Mobile V-Connector -->
-
-                        <div class="bg-white border-4 border-indigo-400 text-gray-800 p-6 rounded-xl shadow-lg w-full max-w-xs text-center font-semibold text-lg hover:bg-indigo-50 transition duration-300 transform hover:scale-[1.02]">
-                            <i class="fas fa-cloud-upload-alt mr-2 text-indigo-500"></i> 플랫폼/데이터 연구팀
-                        </div>
-                        <p class="mt-2 text-sm text-gray-500">대용량 데이터 수집, 처리, 클라우드 아키텍처</p>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Organizational Chart -->
-
-
-            
-             <!-- 뒤로 가기 버튼 (하단) -->
-            <div class="text-center mt-12">
-                 <button onclick="hideResearchDetail()"
-                    class="bg-gray-200 text-gray-700 hover:bg-gray-300 font-bold py-3 px-8 rounded-lg transition duration-200">
-                    <i class="fas fa-arrow-up mr-2"></i> 연구소 메인으로 돌아가기
-                </button>
-            </div>
-
+        <div class="sc-metric">
+          <div class="sc-metric-val">847+</div>
+          <div class="sc-metric-label">참여 숙박시설</div>
         </div>
-    </section>
-
-
-    <!-- 6. Contact Section (문의하기) -->
-    <footer id="contact" class="bg-gray-800 text-white py-16">
-        <div class="container mx-auto px-4">
-            <!-- font-semibold (600)를 font-medium (500)으로 변경하여 글꼴 두께를 더 얇게 조정했습니다. -->
-            <h2 class="text-3xl font-medium mb-4">WITT와 함께 디지털 혁신을 실현하세요.</h2>
-            <p class="text-gray-400 mb-10 max-w-3xl">
-                맞춤형 시스템 개발, 기술 제휴, 채용 등 궁금하신 사항을 남겨주시면<br>
-                담당자가 신속하게 연락드리겠습니다.
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8 border-t border-gray-700 pt-8">
-                
-                <!-- Contact Info Column -->
-                <div>
-                    <h4 class="text-xl font-semibold mb-4 text-blue-400">연락처 정보</h4>
-                    <div class="space-y-3 text-gray-300">
-                        <p class="flex items-center"><i class="fas fa-phone-alt mr-3"></i> T. 010-6850-7890</p>
-                        <p class="flex items-center"><i class="fas fa-envelope mr-3"></i> E. kkytour@gmail.com</p>
-                        <p class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3"></i> A. 전라남도 나주시 그린로 370, 에너지밸리기업개발원 414호</p>
-                    </div>
-                </div>
-
-                <!-- Quick Links Column -->
-                <div>
-                    <h4 class="text-xl font-semibold mb-4 text-blue-400">바로 가기</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#vision" class="hover:text-white transition duration-150 text-gray-300">회사 소개</a></li>
-                        <li><a href="#solutions" class="hover:text-white transition duration-150 text-gray-300">핵심 서비스</a></li>
-                        <li><a href="#technology" class="hover:text-white transition duration-150 text-gray-300">기술 문의</a></li>
-                        <li><a href="#research" class="hover:text-white transition duration-150 text-gray-300">연구소</a></li>
-                        <li><a href="#" class="hover:text-white transition duration-150 text-gray-300">채용 정보</a></li>
-                    </ul>
-                </div>
-
-                <!-- Newsletter/Inquiry (Placeholder) -->
-                <div>
-                    <h4 class="text-xl font-semibold mb-4 text-blue-400">간단 문의</h4>
-                    <p class="text-gray-400 mb-3">프로젝트 문의 내용을 남겨주세요.</p>
-                    <form class="space-y-3">
-                        <input type="email" placeholder="이메일 주소" class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <textarea placeholder="문의 내용 요약 (선택 사항)" rows="2" class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 rounded-lg transition duration-200">문의하기</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="mt-12 pt-6 border-t border-gray-700 text-center">
-                <p class="text-sm text-gray-500">
-                    &copy; 2025 WITT Co., Ltd. All rights reserved. 
-                </p>
-            </div>
+      </div>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-header">
+        <div class="sc-icon-wrap">☀️</div>
+        <div>
+          <div class="sc-title">RE100 에너지 체험 투어</div>
+          <div class="sc-sub">신재생에너지 × 관광 콘텐츠</div>
         </div>
-    </footer>
+      </div>
+      <div class="sc-body">나주 에너지밸리의 인공태양 연구시설·차세대 전력망 혁신기지와 연계된 체험형 관광 코스를 개발합니다. 홈페이지 실시간 대시보드에서 시설의 에너지 생산·소비 현황을 시각화해 제공합니다.</div>
+      <div class="sc-metrics">
+        <div class="sc-metric">
+          <div class="sc-metric-val">100%</div>
+          <div class="sc-metric-label">재생에너지 목표</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-metric-val">124만㎡</div>
+          <div class="sc-metric-label">에너지 클러스터</div>
+        </div>
+      </div>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-header">
+        <div class="sc-icon-wrap">🤖</div>
+        <div>
+          <div class="sc-title">AI 혼잡도 관리</div>
+          <div class="sc-sub">빅데이터 × 스마트 관광지</div>
+        </div>
+      </div>
+      <div class="sc-body">유동인구 및 에너지 소비 데이터를 AI로 분석해 관광지 혼잡도를 실시간 예측합니다. 동적 가격 정책과 추천 경로 서비스로 관광 수요를 분산하고 안전사고 위험을 선제적으로 대응합니다.</div>
+      <div class="sc-metrics">
+        <div class="sc-metric">
+          <div class="sc-metric-val">실시간</div>
+          <div class="sc-metric-label">혼잡도 예측</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-metric-val">GIS</div>
+          <div class="sc-metric-label">위치 기반 추천</div>
+        </div>
+      </div>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-header">
+        <div class="sc-icon-wrap">📱</div>
+        <div>
+          <div class="sc-title">QR 기반 모바일 서비스</div>
+          <div class="sc-sub">비설치형 × 현장 즉시 활용</div>
+        </div>
+      </div>
+      <div class="sc-body">관광객이 현장에서 QR 코드 하나로 즉시 그린 투어 포털에 접속합니다. 탄소 발자국 계산, 에코 리워드 신청, 실시간 에너지 지도 조회까지 설치 없이 모바일 최적화 웹으로 모두 해결합니다.</div>
+      <div class="sc-metrics">
+        <div class="sc-metric">
+          <div class="sc-metric-val">0s</div>
+          <div class="sc-metric-label">앱 설치 시간</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-metric-val">QR</div>
+          <div class="sc-metric-label">즉시 접속</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- IA -->
+<section id="ia">
+  <div class="section-label">● INFORMATION ARCHITECTURE</div>
+  <h2 class="section-title">홈페이지 구성 체계</h2>
+  <div class="ia-grid">
+    <div class="ia-card">
+      <div class="ia-num">PAGE 01</div>
+      <div class="ia-title">메인 페이지 (통합 대시보드)</div>
+      <ul class="ia-items">
+        <li>실시간 나주 에너지-관광 지수 시각화</li>
+        <li>GIS 기반 인터랙티브 대시보드</li>
+        <li>기업 비전 및 핵심 서비스 바로가기</li>
+      </ul>
+    </div>
+    <div class="ia-card">
+      <div class="ia-num">PAGE 02</div>
+      <div class="ia-title">회사 소개 (About WITT)</div>
+      <ul class="ia-items">
+        <li>에너지 ICT 리더로서의 연혁</li>
+        <li>나주 에너지 기업 정체성 강조</li>
+        <li>R&D 역량 및 파트너십 현황</li>
+      </ul>
+    </div>
+    <div class="ia-card">
+      <div class="ia-num">PAGE 03</div>
+      <div class="ia-title">에너지 ICT 솔루션</div>
+      <ul class="ia-items">
+        <li>원격검침(AMI) 및 데이터 플랫폼</li>
+        <li>AI 기반 수요 예측·최적화</li>
+        <li>OT 보안 및 맞춤형 구축 사례</li>
+      </ul>
+    </div>
+    <div class="ia-card">
+      <div class="ia-num">PAGE 04</div>
+      <div class="ia-title">스마트 관광 서비스</div>
+      <ul class="ia-items">
+        <li>나주 그린 투어 포털</li>
+        <li>탄소 발자국 계산기·에코 코스</li>
+        <li>스마트 숙박·실시간 에너지 지도</li>
+      </ul>
+    </div>
+    <div class="ia-card">
+      <div class="ia-num">PAGE 05</div>
+      <div class="ia-title">ESG 데이터 센터</div>
+      <ul class="ia-items">
+        <li>관광 ESG 지표 관리 및 리포팅</li>
+        <li>지역 경제 파급효과·탄소 절감 공개</li>
+        <li>지속 가능성 인증 지원 서비스</li>
+      </ul>
+    </div>
+    <div class="ia-card">
+      <div class="ia-num">PAGE 06</div>
+      <div class="ia-title">고객 센터 & 미디어</div>
+      <ul class="ia-items">
+        <li>나주 방문의 해 축제·행사 정보</li>
+        <li>기술 문의 및 솔루션 도입 상담</li>
+        <li>뉴스레터·데이터 인사이트 구독</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GREEN TOUR PORTAL -->
+<section id="greentour">
+  <div class="gt-layout">
+    <div>
+      <div class="section-label">● GREEN TOUR PORTAL</div>
+      <h2 class="section-title">나주 그린 투어<br>포털 서비스</h2>
+      <p class="section-sub" style="margin-top:1rem">관광객 개인의 여행이 환경에 미치는 영향을 측정하고, 에너지 절약 활동으로 나주사랑상품권을 받는 '책임감 있는 관광'을 실현합니다.</p>
+      <div class="gt-feature-list">
+        <div class="gt-feature">
+          <div class="gt-feature-icon">🧮</div>
+          <div>
+            <div class="gt-feature-title">탄소 발자국 계산기</div>
+            <div class="gt-feature-desc">교통수단·숙박 기간·식비 지출 기반으로 탄소 배출량을 자동 추정합니다.</div>
+          </div>
+        </div>
+        <div class="gt-feature">
+          <div class="gt-feature-icon">🎁</div>
+          <div>
+            <div class="gt-feature-title">에코 리워드 정산</div>
+            <div class="gt-feature-desc">에너지 절감 활동 증빙을 통해 나주사랑상품권으로 인센티브를 지급받습니다.</div>
+          </div>
+        </div>
+        <div class="gt-feature">
+          <div class="gt-feature-icon">📍</div>
+          <div>
+            <div class="gt-feature-title">실시간 에너지 지도</div>
+            <div class="gt-feature-desc">주요 관광 시설의 실시간 에너지 효율 등급과 혼잡도를 지도에서 확인합니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-demo">
+      <div class="gt-demo-title">▸ 탄소 발자국 계산기 DEMO</div>
+      <div class="calculator">
+        <div class="calc-row">
+          <div class="calc-label">출발지 → 나주 이동 수단</div>
+          <select class="calc-select" id="transport">
+            <option value="car">자동차 (일반)</option>
+            <option value="ev">전기차</option>
+            <option value="train">기차 (KTX)</option>
+            <option value="bus">고속버스</option>
+          </select>
+        </div>
+        <div class="calc-row">
+          <div class="calc-label">이동 거리 (km)</div>
+          <input class="calc-input" type="number" id="distance" placeholder="예: 300" value="300">
+        </div>
+        <div class="calc-row">
+          <div class="calc-label">숙박 일수</div>
+          <input class="calc-input" type="number" id="nights" placeholder="예: 2" value="2">
+        </div>
+        <div class="calc-row">
+          <div class="calc-label">숙박 유형</div>
+          <select class="calc-select" id="hotel">
+            <option value="eco">에코 인증 숙소 (그린 스테이)</option>
+            <option value="normal">일반 숙소</option>
+          </select>
+        </div>
+        <button class="calc-btn" onclick="calcCarbon()">탄소 발자국 계산하기</button>
+        <div class="calc-result" id="calc-result">
+          <div class="result-label">예상 탄소 배출량</div>
+          <div class="result-value" id="result-carbon">—</div>
+          <div class="result-reward" id="result-reward"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="section-label" style="text-align:center;justify-content:center;display:flex">● VISION & IMPACT</div>
+  <p class="vision-quote" style="margin-top:1rem">
+    "에너지를 <em>측정</em>하는 기업을 넘어,<br>
+    에너지의 가치를 관광을 통해 시민과 <em>공유</em>하는<br>
+    가치 연결 플랫폼으로 도약합니다."
+  </p>
+  <div class="effects-grid">
+    <div class="effect-card">
+      <div class="effect-icon">🏙️</div>
+      <div class="effect-title">지역 경제 활성화</div>
+      <div class="effect-desc">데이터 기반 맞춤형 서비스로 연간 500만 명 관광객 유치에 실질 기여. 에코 투어리즘 시장에서 나주를 독보적 브랜드로 각인합니다.</div>
+    </div>
+    <div class="effect-card">
+      <div class="effect-icon">💡</div>
+      <div class="effect-title">데이터 경제 창출</div>
+      <div class="effect-desc">에너지-관광 빅데이터를 공공 데이터화해 지역 창업 생태계를 활성화하고 과학적 관광 정책 수립을 지원합니다.</div>
+    </div>
+    <div class="effect-card">
+      <div class="effect-icon">🌍</div>
+      <div class="effect-title">글로벌 스마트시티 모델</div>
+      <div class="effect-desc">나주의 성공 사례를 '스마트 에너지-관광 도시'의 글로벌 표준으로 확산. 타 지자체 및 해외 시장으로 솔루션 수출 가능성을 열어줍니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div class="section-label">● CONTACT</div>
+      <h2 class="section-title" style="font-size:2rem">솔루션 도입 상담</h2>
+      <p style="margin-top:1rem">에너지 ICT와 스마트 관광 융합에 관심 있는 지자체·기업·파트너를 환영합니다. WITT의 전문가가 맞춤형 솔루션을 제안드립니다.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-item-icon">📍</span>
+          <span>전라남도 나주시 혁신산단로 (나주 혁신도시)</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">🌐</span>
+          <span>witt.it.kr</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">✉️</span>
+          <span>contact@witt.it.kr</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">⚡</span>
+          <span>스마트 에너지 ICT 솔루션 전문 기업</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <input class="form-input" type="text" placeholder="기관·기업명">
+          <input class="form-input" type="text" placeholder="담당자명">
+        </div>
+        <input class="form-input" type="email" placeholder="이메일 주소">
+        <input class="form-input" type="tel" placeholder="연락처">
+        <select class="form-input" style="cursor:pointer">
+          <option>문의 유형 선택</option>
+          <option>AMI 원격검침 시스템 도입</option>
+          <option>스마트 관광 플랫폼 구축</option>
+          <option>ESG 데이터 관리 솔루션</option>
+          <option>GIS 디지털 트윈 구축</option>
+          <option>기타 솔루션 문의</option>
+        </select>
+        <textarea class="form-input" placeholder="문의 내용을 입력해주세요..."></textarea>
+        <button class="form-btn">상담 신청하기 →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">WITT</div>
+  <div class="footer-copy">© 2026 주식회사 윗트(WITT). All rights reserved. | 에너지 ICT 기반 스마트 관광 융합 플랫폼</div>
+  <div class="footer-links">
+    <a href="#">이용약관</a>
+    <a href="#">개인정보처리방침</a>
+    <a href="#">사이트맵</a>
+  </div>
+</footer>
+
+<script>
+// Counter animation
+function animateCounter(el, target, suffix='', duration=2000) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { start = target; clearInterval(timer); }
+    el.textContent = Number.isInteger(target) ? Math.floor(start) + suffix : start.toFixed(1) + suffix;
+  }, 16);
+}
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    animateCounter(document.getElementById('cnt-tourists'), 500, '');
+    animateCounter(document.getElementById('cnt-invest'), 3519, '');
+    animateCounter(document.getElementById('cnt-carbon'), 66, '');
+  }, 600);
+});
+
+// Live data flicker
+function flicker(id, base, range, dec=1) {
+  const el = document.getElementById(id);
+  setInterval(() => {
+    const val = base + (Math.random() - 0.5) * range;
+    el.textContent = val.toFixed(dec);
+  }, 3000);
+}
+flicker('live-re', 73.2, 2);
+flicker('live-carbon', 12.4, 0.8);
+flicker('live-visitors', 1.28, 0.2);
+
+// Carbon calculator
+function calcCarbon() {
+  const transport = document.getElementById('transport').value;
+  const distance = parseFloat(document.getElementById('distance').value) || 300;
+  const nights = parseFloat(document.getElementById('nights').value) || 2;
+  const hotel = document.getElementById('hotel').value;
+
+  const factors = { car: 0.21, ev: 0.05, train: 0.04, bus: 0.09 };
+  const hotelFactor = hotel === 'eco' ? 8 : 18;
+
+  const travelCarbon = distance * factors[transport];
+  const hotelCarbon = nights * hotelFactor;
+  const total = (travelCarbon + hotelCarbon).toFixed(1);
+
+  const savings = hotel === 'eco' ? Math.round(nights * 3000) : 0;
+
+  document.getElementById('result-carbon').textContent = total + ' kgCO₂';
+  document.getElementById('result-reward').textContent =
+    savings > 0
+      ? `🎁 그린 스테이 참여 시 약 ${savings.toLocaleString()}원 상당 나주사랑상품권 적립 가능`
+      : `💡 에코 인증 숙소 이용 시 추가 리워드를 받으실 수 있습니다.`;
+  document.getElementById('calc-result').classList.add('show');
+}
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.borderBottomColor = window.scrollY > 50
+    ? 'rgba(0,212,170,0.35)' : 'rgba(0,212,170,0.2)';
+});
+</script>
 </body>
 </html>
